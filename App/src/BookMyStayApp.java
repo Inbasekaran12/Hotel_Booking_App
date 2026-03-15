@@ -2,15 +2,22 @@ public class BookMyStayApp {
 
     public static void main(String[] args) {
 
-        RoomInventory inventory = new RoomInventory();
+        System.out.println("Booking Request Queue");
 
-        Room single = new SingleRoom();
-        Room dbl = new DoubleRoom();
-        Room suite = new SuiteRoom();
+        BookingRequestQueue queue = new BookingRequestQueue();
 
-        RoomSearchService search = new RoomSearchService();
+        queue.addRequest(new Reservation("Abhi","Single"));
+        queue.addRequest(new Reservation("Subha","Double"));
+        queue.addRequest(new Reservation("Vanmathi","Suite"));
 
-        search.searchAvailableRooms(
-                inventory,single,dbl,suite);
+        while(queue.hasPendingRequests()){
+
+            Reservation r = queue.getNextRequest();
+
+            System.out.println("Processing booking for Guest: "
+                    + r.getGuestName()
+                    + ", Room Type: "
+                    + r.getRoomType());
+        }
     }
 }
