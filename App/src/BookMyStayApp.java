@@ -1,22 +1,30 @@
 /**
- * MAIN CLASS BookMyStayApp
- *
- * Use Case 1: Application Entry & Welcome Message
- *
- * Description:
- * Establishes the application starting point
- * and prints a welcome message.
- *
- * @version 1.0
+ * Use Case 2: Room Initialization
  */
 public class BookMyStayApp {
 
-    /**
-     * Application entry point.
-     */
     public static void main(String[] args) {
 
-        System.out.println("Welcome to the Hotel Booking Management System");
-        System.out.println("System initialized successfully.");
+        System.out.println("Hotel Room Initialization");
+
+        Room single = new SingleRoom();
+        Room dbl = new DoubleRoom();
+        Room suite = new SuiteRoom();
+
+        int singleAvailable = 5;
+        int doubleAvailable = 3;
+        int suiteAvailable = 2;
+
+        System.out.println("\nSingle Room:");
+        single.displayRoomDetails();
+        System.out.println("Available: " + singleAvailable);
+
+        System.out.println("\nDouble Room:");
+        dbl.displayRoomDetails();
+        System.out.println("Available: " + doubleAvailable);
+
+        System.out.println("\nSuite Room:");
+        suite.displayRoomDetails();
+        System.out.println("Available: " + suiteAvailable);
     }
 }
