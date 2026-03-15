@@ -1,15 +1,16 @@
-/**
- * Use Case 3: Inventory Management
- */
 public class BookMyStayApp {
 
     public static void main(String[] args) {
 
         RoomInventory inventory = new RoomInventory();
 
-        System.out.println("Inventory Status");
+        Room single = new SingleRoom();
+        Room dbl = new DoubleRoom();
+        Room suite = new SuiteRoom();
 
-        inventory.getRoomAvailability().forEach((type,count) ->
-                System.out.println(type+" Rooms Available: "+count));
+        RoomSearchService search = new RoomSearchService();
+
+        search.searchAvailableRooms(
+                inventory,single,dbl,suite);
     }
 }
